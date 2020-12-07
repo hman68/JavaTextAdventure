@@ -5,19 +5,19 @@ public class Room{
     private boolean south;
     private int num;
     private Item item;
-    public Room(boolean eN, boolean eE, boolean eS, boolean eW, int rmNum){
-        north = eN;
-        west = eW;
-        east = eE;
-        south = eS;
+    public Room(String Exits, int rmNum){
+        if(Exits.indexOf("n")!=-1){north=true;}else{north=false;}
+        if(Exits.indexOf("e")!=-1){east=true;}else{east=false;}
+        if(Exits.indexOf("s")!=-1){south=true;}else{south=false;}
+        if(Exits.indexOf("w")!=-1){west=true;}else{west=false;}
         num = rmNum;
-        item = null;
+        item = new Item("noI");
     }
-    public Room(boolean eN, boolean eE, boolean eS, boolean eW, int rmNum, String itemName){
-        north = eN;
-        west = eW;
-        east = eE;
-        south = eS;
+    public Room(String Exits, int rmNum, String itemName){
+        if(Exits.indexOf("n")!=-1){north=true;}else{north=false;}
+        if(Exits.indexOf("e")!=-1){east=true;}else{east=false;}
+        if(Exits.indexOf("s")!=-1){south=true;}else{south=false;}
+        if(Exits.indexOf("w")!=-1){west=true;}else{west=false;}
         num = rmNum;
         item = new Item(itemName);
     }
@@ -38,6 +38,9 @@ public class Room{
                 System.out.println("Error: Incorrect statement for getExit()");
                 return false;
         }
+    }
+    public void removeItem(){
+        item = new Item("noI");
     }
     public Item getItem(){
         return item;
