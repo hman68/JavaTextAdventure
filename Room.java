@@ -13,13 +13,13 @@ public class Room{
         num = rmNum;
         item = new Item("noI");
     }
-    public Room(String Exits, int rmNum, String itemName){
+    public Room(String Exits, int rmNum, Item itemName){
         if(Exits.indexOf("n")!=-1){north=true;}else{north=false;}
         if(Exits.indexOf("e")!=-1){east=true;}else{east=false;}
         if(Exits.indexOf("s")!=-1){south=true;}else{south=false;}
         if(Exits.indexOf("w")!=-1){west=true;}else{west=false;}
         num = rmNum;
-        item = new Item(itemName);
+        item = itemName;
     }
     public int getNum() {
         return num;

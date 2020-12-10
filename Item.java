@@ -2,8 +2,18 @@
 
 public class Item {
     private String name;
+    private boolean openable;
+    private boolean locked;
+    private String key;
     public Item(String name){
         this.name = name;
+        this.openable = false;
+    }
+    public Item(String name, boolean locked, String key){
+        this.name = name;
+        this.locked = locked;
+        this.key = key;
+        this.openable = true;
     }
     public String getName(){
         return this.name;
@@ -18,7 +28,7 @@ public class Item {
         textAdventure.inv = temp;
         textAdventure.map[textAdventure.posY][textAdventure.posX].removeItem();
     }
-    public static String tostring(){
+    public static String getInv(){
         String temp = "";
         for(int i=0;i<textAdventure.inv.length;i++){
             temp = temp + textAdventure.getInv(i).getName()+"    ";
