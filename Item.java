@@ -77,7 +77,7 @@ public class Item {
     public String getKey(){return key;}
     public String getDir(){return dir;}
     public boolean isDoor(){
-        if(this.getType() == "Door"){
+        if(this.getType() == "door"){
             return true;
         }
         else{
@@ -86,5 +86,13 @@ public class Item {
     }
     public int getSignNum(){
         return sNum;
+    }
+    public void unlock(){
+        if(textAdventure.getFullInv().indexOf(key)>-1){
+            locked = false;
+            System.out.println("You have unlocked the "+name);
+        }else{
+            System.out.println("The "+name+" could not be unlocked");
+        }
     }
 }

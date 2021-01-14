@@ -25,18 +25,13 @@ public class Room{
         return num;
     }
     public boolean getExit(String dir){
-        switch(dir){
-            case "n":
-                return north;
-            case "e":
-                return east;
-            case "s":
-                return south;
-            case "w":
-                return west;
-            default:
-                System.out.println("Error: Incorrect statement for getExit()");
-                return false;
+        if(dir == "n"){return north;}
+        else if(dir == "e"){return east;}
+        else if(dir == "s"){return south;}
+        else if(dir == "w"){return west;}
+        else{
+            System.out.println("Error: Incorrect statement for getExit()");
+            return false;
         }
     }
     public void removeItem(){
@@ -44,5 +39,13 @@ public class Room{
     }
     public Item getItem(){
         return item;
+    }
+    public String getAllExits(){
+        String exits = "";
+        if(north){exits = exits + "n";}
+        if(east){exits = exits+"e";}
+        if(south){exits = exits+"s";}
+        if(west){exits = exits+"w";}
+        return exits;
     }
 }
